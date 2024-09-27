@@ -3,38 +3,42 @@
  * @return {boolean}
  */
 var isValidSudoku = function(board) {
-   
-  
-  let rows = Array.from({length:9},()=> new Set());
-  let columns = Array.from({length:9},()=> new Set());
-  let subMatrix = Array.from({length:9},()=> new Set());
+    let rows = Array.from({length:9},()=> new Set());
+    let cols = Array.from({length:9},()=> new Set());
 
-  for(let i=0;i<9;i++)
-  {
-    for(let j=0;j<9;j++)
+    let subMatrix = Array.from({length:9},()=> new Set());
+
+    for(let row =0;row<9;row++)
     {
-        if(board[i][j] ==='.')
+        for(let col =0;col<9;col++)
         {
-            continue;
+            if(board[row][col] === ".")
+            {
+                continue;
+            }
+
+            let value = board[row][col];
+            let subMatrixIndex = Math.floor(row/3)*3 + Math.floor(col/3);
+
+
+          
+
+            if(rows[row].has(value) || cols[col].has(value) || subMatrix[subMatrixIndex].has(value))
+            {
+                return false;
+            }
+
+
+            rows[row].add(value);
+            cols[col].add(value);
+            subMatrix[subMatrixIndex].add(value);
+
+
+
+
         }
-
-        let val = board[i][j];
-
-        let subMatrixIndex = Math.floor(i/3) * 3 + Math.floor(j/3);
-
-        if(rows[i].has(val) || columns[j].has(val) || subMatrix[subMatrixIndex].has(val))
-        {
-            return false;
-        }
-
-        rows[i].add(val);
-        columns[j].add(val);
-
-        subMatrix[subMatrixIndex].add(val);
-    }
     }
 
     return true;
-  }
-
     
+};
