@@ -18,4 +18,8 @@
 |  |
 | ------- |
 | [0036-valid-sudoku](https://github.com/piyushk1/Leetcode-Problems/tree/master/0036-valid-sudoku) |
+## Math
+|  |
+| ------- |
+| [0009-palindrome-number](https://github.com/piyushk1/Leetcode-Problems/tree/master/0009-palindrome-number) |
 <!---LeetCode Topics End-->
